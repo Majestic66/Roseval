@@ -24,6 +24,7 @@ if(intro){
     window.addEventListener('message',onComplete);
     frame.addEventListener('error',reveal,{once:true});
     const fallback=setTimeout(reveal,15000);
+    frame.src=frame.dataset.src;
   }
 }
 const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('#nav');
