@@ -1,0 +1,2 @@
+import fs from 'node:fs/promises';import path from 'node:path';
+export const portableFiles={name:'portable-files',setup(b){b.onResolve({filter:/.*/},args=>({path:args.path==='three'?path.resolve('node_modules/three/build/three.module.js'):path.resolve(args.importer?path.dirname(args.importer):process.cwd(),args.path),namespace:'portable'}));b.onLoad({filter:/.*/,namespace:'portable'},async args=>({contents:await fs.readFile(args.path,'utf8'),loader:'js'}))}};

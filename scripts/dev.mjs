@@ -1,0 +1,5 @@
+import './build.mjs';
+import http from 'node:http';import fs from 'node:fs/promises';import path from 'node:path';
+const root=path.resolve('dist');const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.webp':'image/webp','.woff2':'font/woff2','.xml':'application/xml','.txt':'text/plain; charset=utf-8'};
+http.createServer(async(req,res)=>{try{let pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);let p=path.resolve(root,'.'+pathname);if(!p.startsWith(root+path.sep)&&p!==root)throw Error();if(!path.extname(p))p=path.join(p,'index.html');let b=await fs.readFile(p);res.writeHead(200,{'Content-Type':mime[path.extname(p)]||'application/octet-stream','Cache-Control':'no-store'});res.end(b)}catch{res.writeHead(404,{'Content-Type':'text/html; charset=utf-8'});res.end(await fs.readFile(path.join(root,'404.html')).catch(()=>'<h1>Page introuvable</h1>'))}}).listen(4186,'127.0.0.1',()=>console.log('http://127.0.0.1:4186'));
+

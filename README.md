@@ -44,8 +44,8 @@ Harmonisation validée : **Roseval Design**, **roseval.design@gmail.com**, maint
 - `src/content.json` : articles, projets, témoignages, FAQ et pages légales.
 - `src/templates.mjs` : textes de l’accueil, offres, navigation, SEO et structure des pages.
 - `src/style.css` : couleurs, typographie, mise en page et adaptation mobile.
-- `src/monogram.js` : tracé du R extrait de la police Outfit du site, sous licence SIL OFL.
-- `src/sculpture.js` : logo R en relief Three.js, éclairage et animation.
+- `src/wordmark.js` : tracé du logotype « roseval. » extrait de la police Outfit du site, sous licence SIL OFL.
+- `src/sculpture.js` : logotype en relief Three.js, éclairage et animation.
 - `src/main.js` : interactions, formulaire, estimateur, consentement et assistant.
 - `public/` : toutes les images et polices, conservées localement.
 
@@ -72,7 +72,7 @@ Le contenu est produit en HTML avant la visite : les moteurs et les visiteurs pe
 
 Les anciennes routes `/services`, `/portfolio` et `/contact` redirigent vers les sections correspondantes. Le site dispose d’une vraie page 404, de liens HTML explorables et d’une structure de titres contrôlée. Les anciennes métadonnées contradictoires (autre domaine Vercel, faux numéro générique, recherche inexistante, compteurs d’avis divergents) n’ont pas été reproduites.
 
-La 3D est chargée à part, uniquement sur l’accueil. Son animation s’arrête hors écran et en arrière-plan ; le bouton pause et la préférence système de réduction des animations sont respectés. Un monogramme reste visible si WebGL n’est pas disponible. Aucun défilement artificiellement détourné. Les visuels ont des dimensions réservées et sont chargés progressivement.
+La 3D est chargée à part, uniquement sur l’accueil. Son animation s’arrête hors écran et en arrière-plan ; le bouton pause et la préférence système de réduction des animations sont respectés. Le logotype reste visible en version plate si WebGL n’est pas disponible. Aucun défilement artificiellement détourné. Les visuels ont des dimensions réservées et sont chargés progressivement.
 
 Cette base facilite l’exploration et la compréhension du site ; elle ne garantit pas une position Google ou une citation dans les réponses d’IA. Les mesures Core Web Vitals réelles devront être suivies après publication. Référence : https://developers.google.com/search/docs/appearance/ai-features
 
@@ -96,5 +96,6 @@ Deux illustrations de blog indisponibles lors de la récupération ont été rem
 
 Three.js pour la 3D, esbuild pour préparer les fichiers JavaScript, Acorn pour la vérification. Les versions sont verrouillées dans `package-lock.json`. Le rendu du contenu ne dépend pas de React, d’un serveur Node en production, ni d’une base de données.
 
-#   R o s e v a l  
+#   R o s e v a l 
+ 
  
