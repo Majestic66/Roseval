@@ -1,6 +1,6 @@
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const intro=document.querySelector('#roseval-intro');
-if(intro&&location.pathname==='/'&&!sessionStorage.getItem('roseval-intro-seen')){const finish=event=>{if(event.origin!==location.origin||event.data?.type!=='roseval-intro-complete')return;sessionStorage.setItem('roseval-intro-seen','1');intro.style.opacity='0';intro.style.pointerEvents='none';intro.addEventListener('transitionend',()=>intro.remove(),{once:true});window.removeEventListener('message',finish)};window.addEventListener('message',finish)}else intro?.remove();
+if(intro&&location.pathname==='/'){const finish=event=>{if(event.origin!==location.origin||event.data?.type!=='roseval-intro-complete')return;intro.style.opacity='0';intro.style.pointerEvents='none';intro.addEventListener('transitionend',()=>intro.remove(),{once:true});window.removeEventListener('message',finish)};window.addEventListener('message',finish)}else intro?.remove();
 const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('#nav');
 menu?.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Fermer le menu':'Ouvrir le menu');nav.classList.toggle('open',open)});
 nav?.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}});
