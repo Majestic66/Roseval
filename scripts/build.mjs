@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';import path from 'node:path';import {build} from 'esbuild';import {portableFiles} from './portable-files.mjs';
 import {fullHome,page,data,journal,article} from '../src/templates.mjs';
-await fs.mkdir('dist/assets',{recursive:true});await fs.cp('public','dist',{recursive:true});await fs.rm('dist/intro.html.html',{force:true});await fs.copyFile('src/style.css','dist/assets/style.css');
-await fs.copyFile('public/intro.html.html','dist/intro.html');
+await fs.mkdir('dist/assets',{recursive:true});await fs.cp('public','dist',{recursive:true});await fs.copyFile('src/style.css','dist/assets/style.css');
+
 await build({absWorkingDir:process.cwd(),tsconfigRaw:{compilerOptions:{}},entryPoints:[path.resolve('src/main.js'),path.resolve('src/sculpture.js')],plugins:[portableFiles],bundle:true,splitting:true,format:'esm',outdir:'dist/assets',minify:true,target:'es2022',entryNames:'[name]',chunkNames:'chunk-[hash]'});
 const urls=[];async function write(url,options){const dir=path.join('dist',url);await fs.mkdir(dir,{recursive:true});await fs.writeFile(path.join(dir,'index.html'),page({...options,url}));urls.push(url)}
 await write('/',{body:fullHome(),title:'Roseval Design — Agence web à Toulouse, création de sites & SEO',description:'Antonny Freval Ros, freelance à Toulouse. Création de sites internet dès 399 €, SEO local, identité visuelle et automatisation IA. Devis gratuit sous 24h.',schema:[{'@type':'FAQPage',mainEntity:data.faq.map(f=>({'@type':'Question',name:f.question,acceptedAnswer:{'@type':'Answer',text:f.answer}}))}]});
