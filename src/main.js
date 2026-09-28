@@ -6,7 +6,6 @@ menu?.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded'
 nav?.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){nav?.classList.remove('open');menu?.setAttribute('aria-expanded','false')}});
 if(!reduced.matches&&'IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('pending');observer.unobserve(e.target)}}),{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>{el.classList.add('pending');observer.observe(el)})}
-if(document.querySelector('#art-canvas')){const load=()=>import('./sculpture.js').then(m=>m.init()).catch(()=>{document.querySelector('#motion-toggle').hidden=true});if('requestIdleCallback'in window)requestIdleCallback(load,{timeout:1400});else setTimeout(load,200)}
 let toastTimer;function toast(text){const el=document.querySelector('#toast');el.textContent=text;el.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('visible'),3500)}
 const store={get(key){try{return localStorage.getItem(key)}catch{return null}},set(key,val){try{localStorage.setItem(key,val)}catch{}}};
 function openDialog(id){const d=document.querySelector(id);if(d&&!d.open)d.showModal()}
