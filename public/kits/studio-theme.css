@@ -1,0 +1,16 @@
+/* Roseval studio palette, shared with the cinematic opening. */
+:root{color-scheme:dark;--purple:#b49aff;--ink:#f4f0ff;--line:#ffffff18;--muted:#b5acbf}
+body{font-family:Outfit,Arial,sans-serif;background:#0d0d11;color:var(--ink);background-image:radial-gradient(ellipse 70% 650px at 80% 180px,#50337625,transparent)}
+.notice{background:#191320;color:#cbb9ec;border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.3px}
+.nav{border-color:var(--line)}.logo{font-weight:600;letter-spacing:-1.5px}.logo span{font-weight:300}nav{color:#c4bccf}nav a:hover,.bottom a:hover{color:#d7c5ff}
+h1,h2{font-weight:500}h1{letter-spacing:-2.7px}h1 em,.eyebrow{color:var(--purple)}.lead,.micro,p.muted,.card-body p,.price span,.step p,details p,.bottom p,dialog p,dialog li{color:var(--muted)}
+.btn{background:#b49aff;border-color:#b49aff;color:#21162f;border-radius:8px;transition:background .2s,transform .2s}.btn:hover{background:#cdbaff;border-color:#cdbaff;transform:translateY(-2px)}.btn.light{background:#ffffff04;border-color:#ffffff25;color:#eee7f8}.btn.light:hover{background:#ffffff0c;border-color:#b49aff70}
+.hero-art{background:linear-gradient(145deg,#30233f,#19151f);border:1px solid #b49aff2e;box-shadow:0 25px 80px #0004}.art-top{color:#c5afdF}.hero-post{box-shadow:0 15px 40px #0005}.float{background:#25202e;border:1px solid #c7aaff30;color:#e7dafa;box-shadow:0 8px 30px #0005}
+.strip{color:#c7bed2;background:#ffffff02}.strip span::before{color:var(--purple)}
+.card{background:#16131c;border-color:#ffffff17;box-shadow:0 8px 30px #0001}.card:hover{border-color:#b49aff65;box-shadow:0 15px 45px #0003}.card-art{background:linear-gradient(145deg,#282030,#1c1723)!important;border-bottom:1px solid #ffffff0b}.category{color:#bba6d6}.card-body h3{font-weight:500;color:#f4f0ff}.price strong{color:#e5d8ff}.card .detail{color:#c5adff}.card .detail:hover{color:#e3d5ff}
+/* Keep the downloadable post samples true to their light paper designs. */
+.sample-post{background:#f8f5fc;color:#2a2333;box-shadow:0 15px 35px #0004}.sample-post>span,.sample-post small{color:#685778}.sample-post h3{color:#2a2333}
+.demo-pair figure{background:#19151f;border:1px solid #ffffff14}.demo-pair figcaption{color:#c7bbd4}.demo-pair img{border-radius:5px}.how{background:linear-gradient(120deg,#20172d,#15121c);border-block:1px solid #b49aff22}.step b{color:#c0a5ff}.step h3{font-weight:500}.faq summary{color:#e7deef}details{border-color:var(--line)}.bottom{border-color:var(--line)}.bottom button{color:#b5acbf}.bottom button:hover{color:#e4d5ff}
+dialog{background:#1a1522;color:#f4f0ff;border-color:#b49aff40;box-shadow:0 30px 100px #0008}dialog::backdrop{background:#09060dc9;backdrop-filter:blur(5px)}dialog .close{color:#eee7f8}dialog strong{color:#e4d5ff}button:focus-visible,a:focus-visible,summary:focus-visible{outline-color:#ccb5ff}
+@media(max-width:680px){.hero h1{font-size:44px;letter-spacing:-1.7px}.hero-art{margin:12px auto 0}.nav{gap:18px}.nav .btn{font-size:12px;padding:11px 14px}.logo{font-size:25px}.strip{line-height:1.8}.bottom{gap:18px}}
+@media(prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
