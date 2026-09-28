@@ -16,3 +16,8 @@ Autorisation d’utiliser et de modifier les modèles pour la communication d’
 
 CONSEILS
 Vérifiez le rendu dans l’application sociale avant de publier : les interfaces et recadrages peuvent varier. Les stories prévoient des marges plus généreuses en haut et en bas. Préférez un titre court, ajoutez un texte alternatif, vérifiez les autorisations de diffusion de vos photos et la véracité des informations.
+
+NOUVEAUTÉS
+La composition Avant / après permet d’importer deux photos. Les exports multiples créent un PNG par format sélectionné ; autorisez les téléchargements multiples dans votre navigateur si nécessaire.
+La sauvegarde facultative du brouillon et la mémorisation de votre identité restent sur votre appareil. Les photos sauvegardées sont limitées à 1600 pixels sur leur grand côté. Le navigateur peut refuser la sauvegarde si le stockage est plein. Effacez les données sur un appareil partagé. La disponibilité du stockage dépend du navigateur, notamment en mode privé ou hors ligne.
+Annuler et Rétablir conservent les 40 dernières étapes de la session. Les liens vers le studio nécessitent une connexion.
