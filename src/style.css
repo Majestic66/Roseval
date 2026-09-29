@@ -31,3 +31,13 @@
 @media(max-width:800px){.case-grid,.offer-columns{grid-template-columns:1fr}.hero h1{font-size:clamp(43px,8vw,66px)}.offer-details{padding:22px}.quick-tools{bottom:12px;right:12px}.hero-actions{gap:12px}}
 /* Roseval + entry in the shared desktop and mobile navigation. */
 nav .nav-roseval-plus{color:var(--violet);white-space:nowrap}nav .nav-roseval-plus span{font-size:20px;line-height:0;vertical-align:-1px}nav{gap:22px}@media(min-width:801px) and (max-width:1200px){.nav-wrap{gap:16px;width:calc(100% - 40px)}nav{gap:14px;font-size:12px}.nav-cta{font-size:11px;gap:8px}.brand{font-size:29px}}
+
+/* Project details and useful long-form navigation. */
+.case-card .project-meta h2{font-size:26px;line-height:1.2;margin:8px 0 0}
+.case-copy>p>a,.prose a:not(.button),.byline>a{color:var(--violet);text-decoration:underline;text-underline-offset:4px}
+.prose nav{padding:24px;border:1px solid var(--line);border-radius:12px;margin:30px 0}
+.prose nav h2{margin-top:0;font-size:22px}
+.prose nav li{margin:10px 0}
+.prose h2[id]{scroll-margin-top:100px}
+.article-cta>div{max-width:620px}.article-cta>div>p{font-size:15px;line-height:1.7}
+.post-meta{flex-wrap:wrap}

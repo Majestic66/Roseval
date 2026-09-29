@@ -9,6 +9,7 @@ function analytics(host='rosevaldesign.com'){
 }
 const a=analytics();a.context.RosevalAnalytics.track('kit_open',{pack:'menuisiers'});assert.equal(a.scripts.length,0);assert.equal(a.context.dataLayer,undefined);
 a.context.RosevalAnalytics.choose('granted');assert.equal(a.scripts.length,1);a.context.RosevalAnalytics.track('kit_export',{pack:'menuisiers',format:'story',email:'private@example.test',title:'private text'});const event=Array.from(a.context.dataLayer.at(-1));assert.equal(event[1],'kit_export');assert.deepEqual(JSON.parse(JSON.stringify(event[2])),{pack:'menuisiers',format:'story'});
+a.context.RosevalAnalytics.track('contact_click',{method:'phone',email:'private@example.test'});assert.deepEqual(JSON.parse(JSON.stringify(Array.from(a.context.dataLayer.at(-1)).slice(1))),['contact_click',{method:'phone'}]);
 const n=a.context.dataLayer.length;a.context.RosevalAnalytics.track('unknown_event',{});assert.equal(a.context.dataLayer.length,n);a.context.RosevalAnalytics.choose('denied');const m=a.context.dataLayer.length;a.context.RosevalAnalytics.track('kit_open',{});assert.equal(a.context.dataLayer.length,m);assert.equal(a.context['ga-disable-G-YHD3WSWHXR'],true);
 a.values.set('roseval-consent',JSON.stringify({value:'granted',time:Date.now()-181*864e5}));a.context.RosevalAnalytics.track('kit_open',{});assert.equal(a.context.dataLayer.length,m);
 const local=analytics('127.0.0.1');local.context.RosevalAnalytics.choose('granted');local.context.RosevalAnalytics.track('kit_open',{});assert.equal(local.scripts.length,0);

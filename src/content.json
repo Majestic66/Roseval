@@ -69,9 +69,9 @@
     {
       "id": 1,
       "slug": "seo-local-toulouse-2026",
-      "title": "SEO Local : Dominez Google à Toulouse en 2026",
-      "excerpt": "Découvrez les stratégies SEO locales qui font exploser la visibilité des entreprises toulousaines sur Google Maps et les recherches locales.",
-      "content": "Le SEO local est devenu le pilier central de la stratégie numérique pour les entreprises toulousaines. En 2026, la proximité ne se joue plus seulement dans la rue, mais dans l'algorithme de Google.\n\nPour dominer le marché local, il est impératif d'optimiser votre fiche Google Business Profile. Cela inclut non seulement des informations précises (horaires, adresse, téléphone), mais surtout une interaction régulière avec vos clients via les avis et les publications.\n\nVoici les éléments clés pour votre stratégie :\n1. **Mots-clés géo-localisés** : Intégrez naturellement des termes comme \"expert web Toulouse\" ou \"boutique centre-ville Toulouse\" dans vos contenus.\n2. **Avis clients** : La quantité et surtout la qualité des avis sont des signaux puissants pour Google. Répondez à chaque message, positif ou négatif.\n3. **Contenu local** : Parlez des événements toulousains, collaborez avec d'autres acteurs locaux et montrez votre ancrage dans la ville rose.\n\nUn bon référencement local peut multiplier par trois le nombre de passages en boutique ou de demandes de devis entrants.",
+      "title": "SEO local à Toulouse : les priorités pour un artisan",
+      "excerpt": "Fiche Google, pages de services, réalisations et suivi des demandes : les priorités pour améliorer la visibilité locale d’un artisan à Toulouse.",
+      "content": "Le référencement local aide une entreprise à être trouvée lorsqu’un client recherche une prestation dans sa zone d’intervention. Pour un artisan toulousain, le premier travail consiste à présenter clairement le métier, les services et les preuves du travail réalisé. Une position précise ne peut pas être promise.\n\n## 1. Vérifier la fiche Google et les coordonnées\n\nVérifiez le nom de l’entreprise, la catégorie correspondant réellement à votre activité, les horaires et le lien vers votre site. Indiquez une adresse accueillant du public uniquement si c’est le cas. Votre téléphone et votre zone d’intervention doivent rester cohérents entre la fiche et le site.\n\nGoogle explique que le classement local dépend principalement de la pertinence, de la distance et de la popularité. Votre travail sur les contenus peut améliorer la compréhension de votre activité ; il ne change pas votre distance par rapport à la personne qui cherche.\n\n## 2. Répondre à un besoin précis sur chaque page\n\nUne page de service doit permettre de comprendre ce que vous faites, pour qui, où et comment demander un devis. Par exemple, une page de rénovation peut expliquer les travaux pris en charge, montrer une réalisation et indiquer les informations à fournir pour une première estimation.\n\nÉvitez de reproduire exactement le même texte pour chaque commune. Une page locale se justifie lorsqu’elle apporte des informations propres au lieu ou à un projet réellement réalisé. La simple répétition du nom Toulouse ne rend pas une page plus utile.\n\n## 3. Montrer des réalisations et recueillir des retours\n\nPrésentez le besoin initial, le travail effectué et des photos que vous êtes autorisé à utiliser. Un exemple concret permet au visiteur de comparer votre prestation à son propre projet. Distinguez les résultats mesurés des impressions rapportées dans un témoignage.\n\nAprès une prestation, vous pouvez inviter vos clients à raconter leur expérience avec leurs propres mots, sans récompense ni exigence d’avis positif. Répondez aux retours avec des informations utiles. Une mention pertinente sur le site d’un partenaire ou d’un client peut également aider les visiteurs à vous découvrir.\n\n## 4. Vérifier l’accès aux pages\n\nLes pages importantes doivent fonctionner sur mobile, disposer de liens accessibles et présenter leur contenu sans obstacle. Contrôlez les erreurs de pages, les redirections d’anciennes adresses et le sitemap. Dans Search Console, vérifiez quelles pages sont indexées avant de conclure à un problème de positionnement.\n\n## 5. Mesurer les demandes, pas seulement les visites\n\nSuivez les clics et impressions dans Search Console, puis les demandes réellement reçues par formulaire, téléphone ou e-mail. Une hausse des visites n’est pas automatiquement une hausse de clients. Notez le service demandé, la zone et la suite donnée au contact dans votre suivi commercial.\n\nCommencez par une page de service prioritaire et une réalisation documentée. Comparez ensuite les requêtes et les contacts sur des périodes comparables, en tenant compte de la saisonnalité et du délai de réexploration des pages.",
       "image": "/journal/seo-local-toulouse-2026.jpg",
       "date": "2026-02-15",
       "readTime": "8 min",
@@ -80,14 +80,40 @@
         "SEO Local",
         "Google My Business",
         "Toulouse"
-      ]
+      ],
+      "takeaways": [
+        "Garder des coordonnées et une zone d’intervention cohérentes.",
+        "Décrire chaque service avec des exemples réels.",
+        "Suivre l’indexation puis les contacts commerciaux reçus."
+      ],
+      "relatedLinks": [
+        {
+          "label": "Accompagnement SEO local à Toulouse",
+          "url": "/referencement-local-toulouse"
+        },
+        {
+          "label": "Voir les réalisations Roseval",
+          "url": "/realisations"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Google : améliorer le classement local",
+          "url": "https://support.google.com/business/answer/7091?hl=fr"
+        },
+        {
+          "label": "Google : fonctionnalités IA et bonnes pratiques SEO",
+          "url": "https://developers.google.com/search/docs/appearance/ai-features?hl=fr"
+        }
+      ],
+      "dateModified": "2026-09-29"
     },
     {
       "id": 6,
       "slug": "creation-site-internet-pas-cher-toulouse",
-      "title": "Création de site internet pas cher à Toulouse : Qualité et petit budget",
-      "excerpt": "Vous cherchez à créer un site internet professionnel à Toulouse sans vous ruiner ? Découvrez nos solutions accessibles pour lancer votre activité en ligne.",
-      "content": "Avoir un site web professionnel ne devrait pas coûter une fortune. Pour les entrepreneurs et petites entreprises, la création de site internet pas cher à Toulouse est une réalité chez Roseval Design.\n\nNous proposons des solutions optimisées qui se concentrent sur l'essentiel :\n1. **Design Moderne** : Un site qui inspire confiance dès la première seconde.\n2. **Performance** : Un chargement ultra-rapide pour ne perdre aucun visiteur.\n3. **SEO de base** : Pour que vos clients toulousains vous trouvent sur Google.\n\nChoisir une solution économique ne signifie pas sacrifier la qualité. Grâce à l'utilisation d'outils modernes et de l'IA, nous réduisons les temps de développement pour vous offrir le meilleur rapport qualité/prix de la région toulousaine.",
+      "title": "Site web à petit budget à Toulouse : que comparer ?",
+      "excerpt": "Comparez les formules Roseval à 39 € HT par mois et dès 399 € HT sur devis : pages, contenus, maintenance, accès et coûts à préciser.",
+      "content": "Un site web à petit budget commence par un périmètre précis. Pour une petite entreprise, l’essentiel peut être de présenter les prestations, montrer quelques réalisations et faciliter une prise de contact. Le choix se fait sur le coût total et les livrables, pas uniquement sur le prix affiché.\n\n## La formule mensuelle Roseval\n\nLa formule simple commence à 39 € HT par mois pour 3 à 5 pages sur une base existante, avec une modification mensuelle et un engagement minimum de 12 mois. Au tarif de départ, le montant minimal sur cette période est de 468 € HT. Les modalités d’hébergement, de nom de domaine et de sortie sont précisées au devis.\n\n## La création sur devis\n\nLe projet sur mesure commence à 399 € HT. Le budget final dépend des pages, des contenus et des fonctions retenues. Il ne faut pas comparer directement ce prix de départ à douze mensualités sans vérifier que les deux périmètres correspondent. La maintenance à 50 € par mois est une prestation distincte.\n\n## Ce qui aide à maîtriser le budget\n\nPréparez votre logo, vos coordonnées, vos prestations et des photos utilisables. Classez vos exemples de réalisations et formulez l’action principale attendue du visiteur : appeler, demander un devis ou prendre contact. Un contenu prêt évite des allers-retours et aide à réserver le budget au travail réellement nécessaire.\n\n## Les points à demander dans le devis\n\n1. Le nombre de pages et les fonctionnalités prévues.\n2. Les textes, photos et éléments graphiques à fournir ou à produire.\n3. Les retours et modifications compris dans le projet.\n4. L’hébergement, le domaine et leurs renouvellements.\n5. Les accès, droits et fichiers remis à la livraison.\n6. Le suivi, la maintenance et les conditions de sortie.\n\n## Choisir une solution adaptée à son activité\n\nUne entreprise de rénovation peut commencer par ses prestations, quelques chantiers et un formulaire. Une boutique qui doit gérer un catalogue, des paiements et des livraisons a d’autres besoins. Décrivez votre fonctionnement avant de choisir une formule : cela permet de distinguer ce qui est utile au lancement de ce qui peut attendre.",
       "image": "/examples/creatif.webp",
       "date": "2026-03-01",
       "readTime": "5 min",
@@ -97,7 +123,27 @@
         "Toulouse",
         "Budget",
         "Création Site"
-      ]
+      ],
+      "takeaways": [
+        "Comparer le périmètre et le coût sur une même durée.",
+        "Préparer les contenus pour éviter du travail supplémentaire.",
+        "Faire préciser les accès, renouvellements et conditions de sortie."
+      ],
+      "relatedLinks": [
+        {
+          "label": "Les prestations de création de sites web",
+          "url": "/creation-site-web-toulouse"
+        },
+        {
+          "label": "Le projet FL Rénovation",
+          "url": "/realisations/fl-renovation"
+        },
+        {
+          "label": "Comprendre les tarifs d’un site vitrine",
+          "url": "/blog/prix-creation-site-vitrine"
+        }
+      ],
+      "dateModified": "2026-09-29"
     },
     {
       "id": 7,
@@ -119,9 +165,9 @@
     {
       "id": 8,
       "slug": "prix-creation-site-vitrine",
-      "title": "Prix création site vitrine 2026 : Tout savoir sur les tarifs",
-      "excerpt": "Quel est le prix réel d'une création de site vitrine en 2026 ? Transparence totale sur les coûts, de la conception à la mise en ligne.",
-      "content": "Le budget dépend du nombre de pages, du contenu à préparer et des fonctionnalités nécessaires.\n\nChez Roseval Design, la formule simple commence à 39 € HT par mois, avec un engagement minimum de 12 mois, pour un site de 3 à 5 pages sur une base existante et une modification mensuelle. Au tarif de départ, cela représente 468 € HT sur 12 mois.\n\nLa création de site vitrine commence à 399 € HT sur devis. Le devis précise les pages et fonctionnalités incluses, les retours, le calendrier et les modalités de livraison. La maintenance à 50 € par mois est une prestation distincte.\n\nAvant de choisir, demandez ce qui est prévu pour l’hébergement, le nom de domaine, les droits et accès au site, le suivi et les conditions de sortie. Comparez un périmètre complet, pas seulement un prix de départ.",
+      "title": "Prix d’un site vitrine : comparer les offres Roseval",
+      "excerpt": "Site vitrine dès 399 € HT ou formule à 39 € HT par mois : comparez le périmètre, les frais récurrents et les conditions du devis Roseval.",
+      "content": "Le prix d’un site vitrine dépend du nombre de pages, du contenu à préparer et des fonctionnalités. Chez Roseval Design, deux approches sont proposées : une formule simple mensuelle et une création sur devis. Voici les repères pour les comparer.\n\n## Formule simple : dès 39 € HT par mois\n\nCette formule prévoit 3 à 5 pages sur une base existante, une modification par mois et un engagement minimum de 12 mois. Au tarif de départ, le montant minimal est donc de 39 × 12 = 468 € HT. Le devis précise les éléments inclus et les conditions au-delà de cette période.\n\n## Projet sur mesure : dès 399 € HT\n\nCe montant est un prix de départ, pas un tarif universel pour tout site. Le devis définit les pages, les fonctionnalités, les contenus, les retours, le calendrier et les modalités de livraison. Une prestation supplémentaire peut modifier le budget.\n\n## Les frais récurrents à préciser\n\nL’hébergement, le nom de domaine et leurs renouvellements doivent être détaillés. La maintenance expert à 50 € par mois est une prestation distincte. Les accès remis, les droits sur les éléments créés et les conditions de sortie doivent également être définis avant de s’engager.\n\n## Comment comparer deux devis\n\nComparez d’abord la même durée et les mêmes livrables. Un prix mensuel et un prix de création ne couvrent pas nécessairement le même service. Faites préciser qui rédige les textes, prépare les images et réalise les mises à jour. Vérifiez aussi ce qui se passe si vous souhaitez ajouter une page ou changer de prestataire.\n\n## Les informations utiles pour une estimation\n\n1. Votre activité, votre public et votre zone d’intervention.\n2. Les pages nécessaires et l’action attendue du visiteur.\n3. Vos contenus disponibles : logo, photos, textes et réalisations.\n4. Les fonctions particulières et les intégrations attendues.\n5. Votre calendrier et le mode de suivi souhaité.\n\nCes éléments permettent de construire un devis compréhensible. Pour voir comment un site s’articule avec l’identité d’une entreprise, consultez les réalisations FL Rénovation, DPC Immobilier et AP Design.",
       "image": "/portfolio/dpc-immobilier.webp",
       "date": "2026-03-10",
       "readTime": "7 min",
@@ -131,7 +177,27 @@
         "Tarifs",
         "Site Vitrine",
         "Budget"
-      ]
+      ],
+      "takeaways": [
+        "39 € HT par mois sur 12 mois représentent 468 € HT minimum au tarif de départ.",
+        "399 € HT est un prix de départ pour une création au périmètre défini au devis.",
+        "La maintenance et les frais récurrents doivent être distingués du prix de création."
+      ],
+      "relatedLinks": [
+        {
+          "label": "Comparer les prestations du studio",
+          "url": "/creation-site-web-toulouse"
+        },
+        {
+          "label": "Consulter les projets réalisés",
+          "url": "/realisations"
+        },
+        {
+          "label": "Préparer les photos de votre site",
+          "url": "/blog/photos-site-artisan"
+        }
+      ],
+      "dateModified": "2026-09-29"
     },
     {
       "id": 2,
