@@ -1,3 +1,4 @@
+import {buildSearchPages,enhanceSearch} from '../src/search-pages.mjs';
 import {buildKitsPacks} from './build-kits-packs.mjs';
 import fs from 'node:fs/promises';import path from 'node:path';import {build} from 'esbuild';import {portableFiles} from './portable-files.mjs';
 import {universes} from '../src/universes.mjs';
@@ -14,6 +15,8 @@ for(const p of data.posts){const url='/blog/'+p.slug;await write(url,{body:artic
 const titles={'mentions-legales':'Mentions légales','politique-confidentialite':'Politique de confidentialité','politique-cookies':'Politique des cookies'};
 for(const [slug,body]of Object.entries(data.legal)){await write('/'+slug,{body:'<article class="section wrap legal"><a class="back-link" href="/">← Retour au site</a>'+body+'</article>',title:titles[slug]+' | Roseval Design',description:titles[slug]+' de Roseval Design, studio de création web à Toulouse. Informations et contact : roseval.design@gmail.com.',schema:[breadcrumb(titles[slug],'/'+slug)]})}
 await fs.writeFile('dist/404.html',page({body:'<section class="section wrap"><p class="eyebrow">404 / PAGE INTROUVABLE</p><h1 class="page-title">On a perdu<br>le fil.</h1><p>Cette page n’existe pas ou a été déplacée.</p><a class="button primary" href="/">Revenir au studio ↗</a></section>',title:'Page introuvable | Roseval Design',description:'Retrouvez le studio Roseval Design.',url:'/404',noindex:true}));
+await buildSearchPages(write);
+await enhanceSearch(urls);
 await fs.writeFile('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(u=>'<url><loc>https://rosevaldesign.com'+u+'</loc></url>').join('')+'</urlset>');
 await fs.writeFile('dist/robots.txt','User-agent: *\nAllow: /\n\nSitemap: https://rosevaldesign.com/sitemap.xml\n');
 console.log('Build réussi : '+urls.length+' pages statiques, sitemap, robots.txt, 404 et atelier Roseval Kits.');
