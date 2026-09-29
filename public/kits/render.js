@@ -2,7 +2,7 @@
 (function(root){
 'use strict';
 const formats={square:{label:'Carré',ratio:'1:1',w:1080,h:1080},portrait:{label:'Portrait',ratio:'4:5',w:1080,h:1350},tall:{label:'Portrait long',ratio:'3:4',w:1080,h:1440},story:{label:'Story',ratio:'9:16',w:1080,h:1920},wide:{label:'Paysage',ratio:'16:9',w:1920,h:1080},social:{label:'Paysage large',ratio:'1,91:1',w:1200,h:628}};
-const styles=[{id:'editorial',name:'Éditorial',desc:'Typographie & espaces'},{id:'bold',name:'Impact',desc:'Contraste & caractère'},{id:'cinema',name:'Immersion',desc:'Photo plein cadre'},{id:'collage',name:'Studio collage',desc:'Décalé & spontané'},{id:'gallery',name:'Galerie',desc:'Grille & détails'},{id:'signature',name:'Signature',desc:'Élégance & sérif'},{id:'manifesto',name:'Manifeste',desc:'Affiche typographique'},{id:'magazine',name:'Magazine',desc:'Couverture & grand titre'},{id:'blueprint',name:'Architecture',desc:'Grille & précision'},{id:'spotlight',name:'Focus',desc:'Cadrage circulaire'},{id:'journal',name:'Carnet',desc:'Photo & note superposée'},{id:'ribbon',name:'Contraste',desc:'Bandeau & composition scindée'},{id:'swiss',name:'Swiss',desc:'Grille asymétrique & rigueur'},{id:'arch',name:'Arche',desc:'Courbes & sérif élégant'},{id:'horizon',name:'Horizon',desc:'Panorama & titre sous l’image'},{id:'film',name:'Pellicule',desc:'Cadre cinéma & perforations'},{id:'mosaic',name:'Mosaïque',desc:'Blocs modulaires & détails'},{id:'atelier',name:'Atelier',desc:'Papier ligné & photo épinglée'},{id:'chroma',name:'Chromatique',desc:'Halo coloré & panneau sombre'},{id:'cartouche',name:'Cartouche',desc:'Photo & encadré éditorial'}];
+const styles=[{id:'editorial',name:'Éditorial',desc:'Typographie & espaces'},{id:'bold',name:'Impact',desc:'Contraste & caractère'},{id:'cinema',name:'Immersion',desc:'Photo plein cadre'},{id:'collage',name:'Studio collage',desc:'Décalé & spontané'},{id:'gallery',name:'Galerie',desc:'Grille & détails'},{id:'signature',name:'Signature',desc:'Élégance & sérif'},{id:'manifesto',name:'Manifeste',desc:'Affiche typographique'},{id:'magazine',name:'Magazine',desc:'Couverture & grand titre'},{id:'blueprint',name:'Architecture',desc:'Grille & précision'},{id:'spotlight',name:'Focus',desc:'Cadrage circulaire'},{id:'journal',name:'Carnet',desc:'Photo & note superposée'},{id:'ribbon',name:'Contraste',desc:'Bandeau & composition scindée'},{id:'swiss',name:'Swiss',desc:'Grille asymétrique & rigueur'},{id:'arch',name:'Arche',desc:'Courbes & sérif élégant'},{id:'horizon',name:'Horizon',desc:'Panorama & titre sous l’image'},{id:'film',name:'Pellicule',desc:'Cadre cinéma & perforations'},{id:'mosaic',name:'Mosaïque',desc:'Blocs modulaires & détails'},{id:'atelier',name:'Atelier',desc:'Papier ligné & photo épinglée'},{id:'chroma',name:'Chromatique',desc:'Halo coloré & panneau sombre'},{id:'cartouche',name:'Cartouche',desc:'Photo & encadré éditorial'},{id:'duplex',name:'Duplex',desc:'Deux colonnes & contraste'},{id:'passepartout',name:'Passe-partout',desc:'Cadre galerie & légende'},{id:'orbit',name:'Orbite',desc:'Cercles & photo satellite'},{id:'ticket',name:'Ticket',desc:'Découpe & pointillés'},{id:'index',name:'Index',desc:'Repères & bande latérale'},{id:'fold',name:'Pliage',desc:'Papier plié & aplats'},{id:'wave',name:'Vague',desc:'Courbes & mouvement'},{id:'stamp',name:'Estampe',desc:'Cadre dentelé & sérif'},{id:'capsule',name:'Capsule',desc:'Photo arrondie & titre compact'},{id:'diagonal',name:'Diagonale',desc:'Angles francs & énergie'}];
 const palettes=[
 {id:'violet',name:'Violet studio',accent:'#6941db',background:'#f5f2ed',ink:'#191820'},
 {id:'cobalt',name:'Cobalt électrique',accent:'#244bff',background:'#eef1ff',ink:'#131b39'},
@@ -100,6 +100,33 @@ if(state.comparison){
  rect(M,top,land?560:960,38,paper,4);label(topic,M+15,top+9,land?525:925,ink,17);
  const boxW=land?570:840,bx=land?M:120;rect(bx,py,boxW,ph,paper,8);rect(bx,py,boxW,8,accent);type(T,bx+30,py+30,boxW-60,ph-60,land?76:112,ink,{serif:true,weight:'400',leading:1});
  rect(0,bottom-160,W,H-bottom+160,ink);type(S,M,bottom-135,940,50,26,'#fff',{weight:'400'});footer('#fff');
+}else if(['duplex','passepartout','orbit','ticket','index','fold','wave','stamp','capsule','diagonal'].includes(style)){
+ const py=top+65,ph=bottom-py-175;
+ let tx=M,ty=py+18,tw=465,th=ph-36,ix=565,iy=py,iw=455,ih=ph,r=0,fg=ink,foot=ink;
+ if(style==='duplex'){
+  rect(0,0,W,H,ink);rect(540,0,540,H,paper);rect(M,py,455,ph,accent);tx=M+25;tw=405;fg=onAccent;foot='#fff';image(ix,iy,iw,ih);rect(540,bottom-160,540,H-bottom+160,ink);
+ }else if(style==='passepartout'){
+  const frame=land?470:480;rect(M,py,frame,ph,ink);image(M+18,py+18,frame-36,ph-36);tx=M+frame+35;tw=1020-tx;fg=ink;line(tx,py,1020,py,accent);ty=py+25;th=ph-50;
+ }else if(style==='orbit'){
+  rect(0,0,W,H,ink);fg=foot='#fff';c.save();c.strokeStyle=accent;c.lineWidth=3;for(let z=0;z<3;z++){c.beginPath();c.ellipse(810,py+ph/2,190+z*33,Math.max(70,ph*.42)+z*18,0,0,Math.PI*2);c.stroke()}c.restore();const sz=Math.min(350,ph-28);image(810-sz/2,py+(ph-sz)/2,sz,sz,sz/2);tw=505;
+ }else if(style==='ticket'){
+  rect(M,py,960,ph,accent,18);tx=M+28;tw=450;fg=onAccent;image(590,py+20,410,ph-40,8);c.save();c.setLineDash([8,10]);line(560,py+15,560,py+ph-15,onAccent);c.restore();for(const y of [py,py+ph]){c.beginPath();c.arc(560,y,18,0,Math.PI*2);c.fillStyle=paper;c.fill()}
+ }else if(style==='index'){
+  rect(M,py,105,ph,accent);type(num,M+15,py+15,75,70,53,onAccent);tx=195;tw=land?395:405;image(635,py,385,ph);line(tx,py+ph-6,600,py+ph-6,accent);
+ }else if(style==='fold'){
+  rect(M,py,960,ph,accent);rect(M,py,500,ph,paper);image(585,py+20,415,ph-40);c.beginPath();c.moveTo(500,py);c.lineTo(560,py+60);c.lineTo(500,py+60);c.closePath();c.fillStyle=ink;c.fill();tx=M+20;tw=400;ty=py+25;th=ph-50;
+ }else if(style==='wave'){
+  rect(0,0,W,H,ink);fg=foot='#fff';c.beginPath();c.moveTo(530,0);c.bezierCurveTo(850,H*.3,340,H*.7,650,H);c.lineTo(W,H);c.lineTo(W,0);c.closePath();c.fillStyle=accent;c.fill();image(640,py+10,360,ph-20,Math.min(180,(ph-20)/2));tw=510;
+ }else if(style==='stamp'){
+  rect(555,py,465,ph,accent);for(let xx=568;xx<1010;xx+=28){for(const yy of [py,py+ph]){c.beginPath();c.arc(xx,yy,7,0,Math.PI*2);c.fillStyle=paper;c.fill()}}for(let yy=py+15;yy<py+ph;yy+=28){for(const xx of [555,1020]){c.beginPath();c.arc(xx,yy,7,0,Math.PI*2);c.fillStyle=paper;c.fill()}}image(576,py+21,423,ph-42);line(M,py+ph-5,505,py+ph-5,accent);tw=450;
+ }else if(style==='capsule'){
+  rect(M,py,960,ph,ink,Math.min(65,ph/4));fg='#fff';tx=M+35;tw=445;ty=py+30;th=ph-60;image(590,py+20,410,ph-40,Math.min(205,(ph-40)/2));
+ }else if(style==='diagonal'){
+  rect(0,0,W,H,ink);fg=foot='#fff';c.beginPath();c.moveTo(650,0);c.lineTo(W,0);c.lineTo(W,H);c.lineTo(470,H);c.closePath();c.fillStyle=accent;c.fill();image(610,py,410,ph);rect(M,py,490,ph,ink);tw=460;
+ }
+ label(topic,M,top,830,foot,19);label(num,960,top,60,style==='duplex'?ink:foot);
+ type(T,tx,ty,tw,th,land?76:104,fg,{serif:['passepartout','stamp','fold'].includes(style),weight:['passepartout','stamp'].includes(style)?'400':'700',leading:1});
+ type(S,M,bottom-136,940,51,26,foot,{weight:'400'});footer(foot);
 }else{
  rect(0,0,W,H,state.background||'#eeeae3');label(topic,M,top,850,ink,19);
  if(land){image(625,top+57,395,bottom-top-169,125);type(T,M,top+80,505,bottom-top-230,78,ink,{serif:true,italic:true,weight:'400'});type(S,M,bottom-132,940,47,23,ink,{weight:'400'});footer()}else{let th=Math.min(300,H*.25);type(T,M,top+67,960,th,112,ink,{serif:true,italic:true,weight:'400',leading:.99,align:'center'});let py=top+67+th+30,ph=bottom-py-180;image(150,py,780,ph,Math.min(390,ph/2));type(S,130,bottom-139,820,58,27,ink,{weight:'400',align:'center'});footer()}
