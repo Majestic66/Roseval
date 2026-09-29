@@ -55,6 +55,12 @@ if(design==='organic'){decor=`<path d="M${W-380} 140C${W+180} 180 ${W+90} 550 ${
 if(design==='noir'){accent=d;decor=`<rect x="35" y="165" width="${W-70}" height="${H-310}" fill="none" stroke="${d}"/><path d="M${W/2-65} 250h130m-65-35v70" stroke="${d}" stroke-width="2"/>`;y=H*.3;by=H*.65;th=H*.28;bh=H*.18;ink=p;titleSize=94}
 if(design==='blueprint'){bg='#152c4c';ink='#edf4ff';accent='#b2d9ff';decor=`<defs><pattern id="bluegrid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#9fc8ee" stroke-opacity=".16"/></pattern></defs><rect width="${W}" height="${H}" fill="url(#bluegrid)"/><circle cx="${W-220}" cy="300" r="120" fill="none" stroke="${accent}"/><path d="M${W-380} 300h320m-160-160v320" stroke="${accent}"/>`;y=350;th=H*.26;by=Math.max(H*.66,y+th+25);bh=H-by-150;titleSize=76}
 if(design==='pop'){bg=a;ink=b;decor=`<circle cx="${W-120}" cy="230" r="200" fill="${d}"/><circle cx="60" cy="${H-170}" r="170" fill="${p}"/><rect x="58" y="220" width="${W-116}" height="${H-400}" rx="65" fill="${p}" stroke="${b}" stroke-width="4"/>`;x=105;w=W-210;y=285;th=H*.3;by=H*.65;bh=H*.17}
+if(validSlideImage(s.image)){
+  const photoH=Math.round(H*.36),photoY=180;
+  const photoW=W-160;
+  decor=`<rect x="80" y="${photoY}" width="${photoW}" height="${photoH}" fill="${ink}" opacity=".06"/><svg x="80" y="${photoY}" width="${photoW}" height="${photoH}" viewBox="0 0 ${photoW} ${photoH}" overflow="hidden"><image href="${s.image}" width="${photoW}" height="${photoH}" preserveAspectRatio="xMidYMid ${s.imageFit==='contain'?'meet':'slice'}"/></svg>`;
+  x=80;w=W-160;y=photoY+photoH+30;th=H*.17;by=y+th+20;bh=Math.max(70,H-145-by);titleSize=70;
+}
 const label=state.brand.name.toUpperCase();return svgRoot(W,H,`<rect width="${W}" height="${H}" fill="${bg}"/>${decor}${fitText(label,80,58,W-160,65,25,ink,'Outfit',500)}${fitText(s.title,x,y,w,th,titleSize,ink,state.brand.font,600)}${fitText(s.body,x,by,w,bh,34,ink,'Outfit',400)}<line x1="80" y1="${H-112}" x2="${W-80}" y2="${H-112}" stroke="${ink}" opacity=".3"/>${textSvg(index===slides.length-1?'À VOUS DE JOUER ↗':'FAITES DÉFILER →',80,H-62,20,ink,70,'Outfit')}${textSvg(`${index+1} / ${slides.length}`,W-165,H-62,20,ink,15,'Outfit')}`)};
 function logoSVG(monogram=false){const [a,b]=colors(),n=monogram?state.brand.name.split(/\s+/).map(x=>x[0]||'').slice(0,2).join('').toUpperCase():state.brand.name;return svgRoot(monogram?600:1400,600,fitText(n,50,100,monogram?500:1300,380,monogram?300:180,a,state.brand.font,600))}
 brandSVG=function(){if(!['Badge','Empilé','Contour'].includes(state.brand.style))return original.brandSVG();const [a,b,c,d]=colors(),n=state.brand.name;let mark='';if(state.brand.style==='Badge')mark=`<circle cx="330" cy="365" r="210" fill="${b}"/><circle cx="330" cy="365" r="190" fill="none" stroke="${a}" stroke-width="3"/>${fitText(n,170,275,320,170,60,a,state.brand.font,600)}`;if(state.brand.style==='Empilé')mark=`<rect x="75" y="155" width="510" height="430" fill="${b}"/>${fitText(n.toUpperCase(),110,205,435,320,110,a,state.brand.font,700)}`;if(state.brand.style==='Contour')mark=`<rect x="70" y="155" width="520" height="430" rx="18" fill="${b}"/><g fill="none" stroke="${a}" stroke-width="2">${fitText(n,95,265,470,210,95,'none',state.brand.font,600)}</g>`;return svgRoot(1200,900,`<rect width="1200" height="900" fill="${c}"/>${textSvg('BRAND SYSTEM / '+state.brand.style.toUpperCase(),60,70,20,b,60)}${mark}${fitText(n,655,220,480,160,75,b,state.brand.font,600)}${fitText(state.brand.tagline,655,420,475,120,30,b,'Outfit')}${[a,b,c,d].map((v,i)=>`<rect x="${60+i*280}" y="660" width="250" height="110" rx="5" fill="${v}" stroke="${b}" stroke-opacity=".12"/>${textSvg(v,60+i*280,810,20,b,15,'Courier')}`).join('')}`)};
@@ -103,4 +109,33 @@ const beforeFontAction=action;action=async function(a){if(['png','svg','brandzip
 const beforeFontLab=labAction;labAction=async function(a){if(['logo-svg','logo-png','monogram','multiformat','contactsheet'].includes(a))await Promise.all([fontReady,ensureFont(state.brand.font)]);return beforeFontLab(a)};
 $('#app').addEventListener('input',e=>{if(e.target.dataset.field==='brand.font'){const font=state.brand.font;ensureFont(font).then(()=>{if(state.brand.font===font&&route==='brand')updatePreview()})}});
 Promise.all(Object.keys(hostedFonts).map(ensureFont)).then(()=>{if(route==='discover')render();else if(['brand','carousel','mockup'].includes(route))updatePreview()});
+// Photos belong to individual slides and travel with project/undo/export data.
+function validSlideImage(value){return typeof value==='string'&&value.length<=350000&&/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/.test(value)}
+const photoPreview=updatePreview;
+updatePreview=function(){
+  photoPreview();if(route!=='carousel')return;
+  const slide=state.carousel.slides[state.carousel.index];
+  const hasImage=validSlideImage(slide.image);
+  $('#slide-editor').insertAdjacentHTML('beforeend',`<div class="slide-photo-panel" style="margin-top:20px;padding-top:18px;border-top:1px solid #ffffff20"><label for="slide-photo">${hasImage?'Remplacer l’image':'Ajouter une image à cette slide'}</label><input id="slide-photo" type="file" accept="image/jpeg,image/png,image/webp"><p style="font-size:12px;line-height:1.5;color:#b5acbf">JPG, PNG ou WebP · 5 Mo maximum. Vos images restent sur cet appareil.</p>${hasImage?`<label for="slide-photo-fit">Cadrage de l’image</label><select id="slide-photo-fit"><option value="cover" ${slide.imageFit!=='contain'?'selected':''}>Remplir le cadre</option><option value="contain" ${slide.imageFit==='contain'?'selected':''}>Afficher l’image entière</option></select><button type="button" class="button secondary" id="slide-photo-remove" style="margin-top:12px">Retirer l’image</button>`:''}</div>`);
+  $('#slide-photo').onchange=async e=>{
+    const file=e.target.files[0];if(!file)return;
+    if(!['image/jpeg','image/png','image/webp'].includes(file.type)||file.size>5*1024*1024){toast('Choisissez un JPG, PNG ou WebP de moins de 5 Mo.');e.target.value='';return}
+    e.target.disabled=true;
+    try{
+      const bitmap=await createImageBitmap(file);
+      let image;
+      try{
+        const canvas=document.createElement('canvas');let edge=1200;
+        do{const scale=Math.min(1,edge/Math.max(bitmap.width,bitmap.height));canvas.width=Math.max(1,Math.round(bitmap.width*scale));canvas.height=Math.max(1,Math.round(bitmap.height*scale));const context=canvas.getContext('2d');context.fillStyle='#ffffff';context.fillRect(0,0,canvas.width,canvas.height);context.drawImage(bitmap,0,0,canvas.width,canvas.height);image=canvas.toDataURL('image/jpeg',.85);edge=Math.floor(edge*.75)}while(image.length>300000&&edge>=200);
+      }finally{bitmap.close()}
+      if(!validSlideImage(image))throw Error('Image trop volumineuse');
+      if(!state.carousel.slides.includes(slide)){toast('La slide a changé : sélectionnez-la et réessayez.');return}
+      remember();slide.image=image;slide.imageFit=slide.imageFit||'cover';persist();if(route==='carousel')updatePreview();toast('Image ajoutée à la slide.');
+    }catch{toast('Impossible de lire cette image. Essayez un autre fichier.')}finally{e.target.disabled=false;e.target.value=''}
+  };
+  if(hasImage){
+    $('#slide-photo-fit').onchange=e=>{remember();slide.imageFit=e.target.value;persist();updatePreview()};
+    $('#slide-photo-remove').onclick=()=>{remember();delete slide.image;delete slide.imageFit;persist();updatePreview();toast('Image retirée.')};
+  }
+};
 render();
