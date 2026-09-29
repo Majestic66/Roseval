@@ -11,3 +11,5 @@
 @font-face{font-family:"Bebas Neue";src:url("/roseval-plus/fonts/bebas-neue.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
 @font-face{font-family:"Space Mono";src:url("/roseval-plus/fonts/space-mono.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
 @font-face{font-family:"DM Sans";src:url("/roseval-plus/fonts/dm-sans.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+/* Keep the return to the three universes accessible on small screens. */
+@media(max-width:600px){.shell>header{gap:10px}.shell>header>#breadcrumb{display:none}.shell>header>.header-right{width:100%;justify-content:space-between}}

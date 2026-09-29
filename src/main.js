@@ -1,5 +1,10 @@
+// Preserve older bookmarks that opened a section of the former homepage.
+const oldHomeSections=new Set(['hero','services','portfolio','about','pricing','process','testimonials','faq','contact']);
+function legacyHomeTarget(){return location.pathname==='/'&&oldHomeSections.has(location.hash.slice(1))}
+if(legacyHomeTarget())location.replace('/web'+location.hash);
+window.addEventListener('hashchange',()=>{if(legacyHomeTarget())location.replace('/web'+location.hash)});
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-const intro=document.querySelector('#roseval-intro');
+const intro=legacyHomeTarget()?null:document.querySelector('#roseval-intro');
 if(intro){
   let seen=false;
   try{seen=sessionStorage.getItem('roseval-intro-seen')==='1'}catch{}
@@ -59,3 +64,12 @@ document.querySelector('#chat-form')?.addEventListener('submit',e=>{e.preventDef
 document.querySelectorAll('[data-topic]').forEach(b=>b.addEventListener('click',()=>chat(b.dataset.topic)));
 document.querySelectorAll('[data-consent]').forEach(b=>b.addEventListener('click',()=>{if(window.RosevalAnalytics?.choose(b.dataset.consent)){document.querySelector('#cookie-dialog').close();toast('Préférences enregistrées')}}));
 document.querySelector('[data-share]')?.addEventListener('click',async()=>{try{if(navigator.share)await navigator.share({title:document.title,url:location.href});else{await navigator.clipboard.writeText(location.href);toast('Lien copié')}}catch{}});
+
+// Small pointer parallax; links remain ordinary links and work without JavaScript.
+if(!reduced.matches&&matchMedia('(pointer:fine)').matches){
+ for(const card of document.querySelectorAll('.universe-card')){
+  let raf=0;
+  card.addEventListener('pointermove',event=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{const r=card.getBoundingClientRect(),x=(event.clientX-r.left)/r.width,y=(event.clientY-r.top)/r.height;card.style.setProperty('--tilt-x',((.5-y)*4)+'deg');card.style.setProperty('--tilt-y',((x-.5)*5)+'deg');card.style.setProperty('--pointer-x',(x*100)+'%');card.style.setProperty('--pointer-y',(y*100)+'%')})});
+  card.addEventListener('pointerleave',()=>{cancelAnimationFrame(raf);card.style.setProperty('--tilt-x','0deg');card.style.setProperty('--tilt-y','0deg')});
+ }
+}

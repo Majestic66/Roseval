@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import {deflateRawSync} from 'node:zlib';
 export async function buildKitsPacks(){
  const source=path.resolve('public/kits'),out=path.resolve('dist/kits/packs');await fs.mkdir(out,{recursive:true});
- let html=(await fs.readFile(path.join(source,'atelier.html'),'utf8')).replace('<base href="/kits/">','').replaceAll('href="/"','href="https://rosevaldesign.com/"').replaceAll('href="index.html"','href="https://rosevaldesign.com/kits"').replaceAll('href="/#contact"','href="https://rosevaldesign.com/#contact"');
+ let html=(await fs.readFile(path.join(source,'atelier.html'),'utf8')).replace('<base href="/kits/">','').replaceAll('href="/"','href="https://rosevaldesign.com/"').replaceAll('href="index.html"','href="https://rosevaldesign.com/kits"').replaceAll('href="/web#contact"','href="https://rosevaldesign.com/web#contact"');
  html=html.replace('<script src="../measurement.js"></script>','').replace('<button id="analytics-preferences" type="button">Préférences statistiques</button>','');
  let css=await fs.readFile(path.join(source,'atelier.css'),'utf8');
  for(const f of await fs.readdir(path.join(source,'assets/fonts')))if(f.endsWith('.woff'))css=css.replace('assets/fonts/'+f,'data:font/woff;base64,'+(await fs.readFile(path.join(source,'assets/fonts',f))).toString('base64'));

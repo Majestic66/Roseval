@@ -39,17 +39,17 @@
   "redirects": [
     {
       "source": "/services",
-      "destination": "/#services",
+      "destination": "/web#services",
       "permanent": true
     },
     {
       "source": "/portfolio",
-      "destination": "/#portfolio",
+      "destination": "/web#portfolio",
       "permanent": true
     },
     {
       "source": "/contact",
-      "destination": "/#contact",
+      "destination": "/web#contact",
       "permanent": true
     }
   ]
