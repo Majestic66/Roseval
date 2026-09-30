@@ -4,6 +4,7 @@ function legacyHomeTarget(){return location.pathname==='/'&&oldHomeSections.has(
 if(legacyHomeTarget())location.replace('/web'+location.hash);
 window.addEventListener('hashchange',()=>{if(legacyHomeTarget())location.replace('/web'+location.hash)});
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+if(document.querySelector('#sculpture'))import('./sculpture.js').then(({init})=>init());
 const intro=legacyHomeTarget()?null:document.querySelector('#roseval-intro');
 if(intro){
   let seen=false;
