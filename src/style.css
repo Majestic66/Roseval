@@ -32,6 +32,24 @@
 /* Roseval + entry in the shared desktop and mobile navigation. */
 nav .nav-roseval-plus{color:var(--violet);white-space:nowrap}nav .nav-roseval-plus span{font-size:20px;line-height:0;vertical-align:-1px}nav{gap:22px}@media(min-width:801px) and (max-width:1200px){.nav-wrap{gap:16px;width:calc(100% - 40px)}nav{gap:14px;font-size:12px}.nav-cta{font-size:11px;gap:8px}.brand{font-size:29px}}
 
+/* Précision lumineuse — Hero uniquement. */
+.hero{isolation:isolate}
+.hero::before{content:'';position:absolute;z-index:-1;pointer-events:none;inset:40px 0 auto;height:min(650px,85%);background:radial-gradient(ellipse 55% 60% at 57% 48%,#8b65ce19 0%,#8b65ce09 38%,transparent 75%)}
+.hero-copy{padding-block:48px 58px}
+.hero-label{margin-bottom:30px;letter-spacing:2.2px}
+.hero h1{font-weight:500;letter-spacing:-.055em;line-height:1.06;margin-bottom:32px;text-wrap:balance}
+.hero-description{line-height:1.75;margin-bottom:38px}
+.hero-actions .button{transition:background .2s,border-color .2s,transform .2s}
+.hero-actions .button:hover{transform:translateY(-2px)}
+.hero-actions .button span{transition:transform .2s}
+.hero-actions .button:hover span{transform:translate(2px,-2px)}
+@keyframes hero-appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.hero-top,.hero-label,.hero h1,.hero-description,.hero-actions,.kits-promo,.hero-bottom{animation:hero-appear .4s ease-out both}
+.hero-label{animation-delay:.04s}.hero h1{animation-delay:.08s}.hero-description{animation-delay:.12s}.hero-actions{animation-delay:.16s}.kits-promo{animation-delay:.12s}.hero-bottom{animation-delay:.18s}
+@media(max-width:800px){.hero-copy{padding-top:45px;padding-bottom:0}.hero h1{line-height:1.06}.hero-description{margin-bottom:30px}}
+@media(max-width:520px){.hero-copy{padding-top:35px}.hero-label{margin-bottom:26px}.hero h1{margin-bottom:26px}.hero-description{margin-bottom:27px}}
+@media(prefers-reduced-motion:reduce){.hero-top,.hero-label,.hero h1,.hero-description,.hero-actions,.kits-promo,.hero-bottom{animation:none}.hero-actions .button:hover,.hero-actions .button:hover span{transform:none}}
+
 /* Project details and useful long-form navigation. */
 .case-card .project-meta h2{font-size:26px;line-height:1.2;margin:8px 0 0}
 .case-copy>p>a,.prose a:not(.button),.byline>a{color:var(--violet);text-decoration:underline;text-underline-offset:4px}
