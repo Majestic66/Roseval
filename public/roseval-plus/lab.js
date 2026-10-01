@@ -171,4 +171,3 @@ updatePreview=function(){
 home=studioHome;
 brief=studioBrief;
 plus=studioProjects;
-studioInit();
