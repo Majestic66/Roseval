@@ -2,14 +2,13 @@ import {buildCasePages} from '../src/case-studies.mjs';
 import {buildSearchPages,enhanceSearch} from '../src/search-pages.mjs';
 import {buildKitsPacks} from './build-kits-packs.mjs';
 import fs from 'node:fs/promises';import path from 'node:path';import {build} from 'esbuild';import {portableFiles} from './portable-files.mjs';
-import {universes} from '../src/universes.mjs';
 import {fullHome,page,data,journal,article,esc} from '../src/templates.mjs';
 await fs.rm('dist',{recursive:true,force:true});
 await fs.mkdir('dist/assets',{recursive:true});await fs.cp('public','dist',{recursive:true});await buildKitsPacks();await fs.copyFile('src/style.css','dist/assets/style.css');await fs.copyFile('src/universes.css','dist/assets/universes.css');
 
 await build({absWorkingDir:process.cwd(),tsconfigRaw:{compilerOptions:{}},entryPoints:[path.resolve('src/main.js'),path.resolve('src/plus-entry.js')],plugins:[portableFiles],bundle:true,splitting:true,format:'esm',outdir:'dist/assets',minify:true,target:'es2022',entryNames:'[name]',chunkNames:'chunk-[hash]'});
 const urls=['/kits','/kits/atelier','/roseval-plus'];async function write(url,options){const dir=path.join('dist',url);await fs.mkdir(dir,{recursive:true});await fs.writeFile(path.join(dir,'index.html'),page({...options,url}));urls.push(url)}
-await write('/',{body:universes(),title:'Roseval — Trois univers, une même signature',description:'Roseval Design, studio indépendant à Toulouse : création de sites web, identité visuelle, SEO local et outils créatifs gratuits pour les professionnels.'});
+await fs.copyFile('src/home.html','dist/index.html');urls.push('/');
 await write('/web',{body:fullHome(),title:'Freelance web à Toulouse : sites et SEO | Roseval Design',description:'Antonny Freval Ros, freelance à Toulouse. Création de sites internet dès 399 € HT, SEO local, identité visuelle et automatisation IA. Devis gratuit sous 24h.',schema:[{'@type':'FAQPage',mainEntity:data.faq.map(f=>({'@type':'Question',name:f.question,acceptedAnswer:{'@type':'Answer',text:f.answer}}))}]});
 const breadcrumb=(name,url)=>({'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Accueil',item:'https://rosevaldesign.com/'},{'@type':'ListItem',position:2,name,url:'https://rosevaldesign.com'+url,item:'https://rosevaldesign.com'+url}]});
 await write('/blog',{body:journal(),title:'Journal — Conseils web, SEO & IA à Toulouse | Roseval Design',description:'Les articles d’Antonny Freval Ros : création de sites web, SEO local à Toulouse, design, budget et intelligence artificielle.',schema:[breadcrumb('Journal','/blog')]});
@@ -19,7 +18,8 @@ for(const [slug,body]of Object.entries(data.legal)){await write('/'+slug,{body:'
 await fs.writeFile('dist/404.html',page({body:'<section class="section wrap"><p class="eyebrow">404 / PAGE INTROUVABLE</p><h1 class="page-title">On a perdu<br>le fil.</h1><p>Cette page n’existe pas ou a été déplacée.</p><a class="button primary" href="/">Revenir au studio ↗</a></section>',title:'Page introuvable | Roseval Design',description:'Retrouvez le studio Roseval Design.',url:'/404',noindex:true}));
 await buildSearchPages(write);
 await buildCasePages(write,data,esc);
-await enhanceSearch(urls);
+// The standalone Lovable homepage already includes its own SEO metadata and layout.
+await enhanceSearch(urls.filter(url=>url!=='/'));
 await fs.writeFile('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(u=>{const post=data.posts.find(p=>u==='/blog/'+p.slug);return '<url><loc>https://rosevaldesign.com'+u+'</loc>'+(post?'<lastmod>'+(post.dateModified||post.date)+'</lastmod>':'')+'</url>'}).join('')+'</urlset>');
 await fs.writeFile('dist/robots.txt','User-agent: *\nAllow: /\n\nSitemap: https://rosevaldesign.com/sitemap.xml\n');
 console.log('Build réussi : '+urls.length+' pages statiques, sitemap, robots.txt, 404 et atelier Roseval Kits.');
