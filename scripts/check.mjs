@@ -9,3 +9,4 @@ assert.ok(home.includes('class="kits-promo"'));assert.ok(!home.includes('id="art
 await import('./check-kits.mjs');
 
 await import("./check-search.mjs");
+await import('./check-indexing.mjs');

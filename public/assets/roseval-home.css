@@ -1,5 +1,12 @@
 /* Roseval — nouvelle page d'accueil (autonome, aucune dépendance au style du site) */
 
+.home-skip { position: fixed; top: 12px; left: 12px; z-index: 20; padding: 12px 18px; background: #e0c5ff; color: #16131e; transform: translateY(-160%); }
+.home-skip:focus { transform: translateY(0); }
+.roseval-page :is(a, button):focus-visible { outline: 2px solid var(--roseval-lilac); outline-offset: 5px; }
+.home-footer-links { display: flex; flex-wrap: wrap; gap: 16px 24px; padding-bottom: 32px; font-size: 12px; line-height: 1.6; color: var(--roseval-soft); }
+.home-footer-links button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+.home-footer-links :is(a, button):hover { text-decoration: underline; text-underline-offset: 4px; }
+
 :root {
   --background: oklch(0.14 0.008 285);
   --foreground: oklch(0.97 0.007 285);
