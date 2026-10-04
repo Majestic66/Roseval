@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Roseval — Création web à Toulouse & outils créatifs</title>
   <meta name="description" content="Roseval Design, studio indépendant à Toulouse : création de sites web, identité visuelle, SEO local et outils créatifs gratuits pour les professionnels.">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -23,6 +23,17 @@
   <meta name="twitter:title" content="Roseval — Création web à Toulouse & outils créatifs">
   <meta name="twitter:description" content="Roseval Design, studio indépendant à Toulouse : création de sites web, identité visuelle, SEO local et outils créatifs gratuits pour les professionnels.">
   <meta name="twitter:image" content="https://rosevaldesign.com/og-image.jpg">
+  <style>
+    html.intro-pending { overflow: hidden; }
+    html.intro-pending::before { content: "roseval."; position: fixed; inset: 0; z-index: 2147483647; display: grid; place-items: center; background: #0d0d11; color: #baa5ff; font: 700 clamp(48px, 12vw, 160px)/1 Arial, sans-serif; letter-spacing: -.07em; }
+  </style>
+  <script>
+    // Paint the intro cover before fonts, images and the main script arrive.
+    if (!location.hash && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('intro-pending');
+      window.rosevalIntroCoverTimer = setTimeout(function () { document.documentElement.classList.remove('intro-pending'); }, 8000);
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap">
