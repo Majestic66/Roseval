@@ -1,6 +1,7 @@
 import {buildCasePages} from '../src/case-studies.mjs';
 import {buildSearchPages,enhanceSearch} from '../src/search-pages.mjs';
 import {buildKitsPacks} from './build-kits-packs.mjs';
+import {protectPreview} from './indexing.mjs';
 import fs from 'node:fs/promises';import path from 'node:path';import {build} from 'esbuild';import {portableFiles} from './portable-files.mjs';
 import {fullHome,page,data,journal,article,esc} from '../src/templates.mjs';
 await fs.rm('dist',{recursive:true,force:true});
@@ -22,4 +23,5 @@ await buildCasePages(write,data,esc);
 await enhanceSearch(urls.filter(url=>url!=='/'));
 await fs.writeFile('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(u=>{const post=data.posts.find(p=>u==='/blog/'+p.slug);return '<url><loc>https://rosevaldesign.com'+u+'</loc>'+(post?'<lastmod>'+(post.dateModified||post.date)+'</lastmod>':'')+'</url>'}).join('')+'</urlset>');
 await fs.writeFile('dist/robots.txt','User-agent: *\nAllow: /\n\nSitemap: https://rosevaldesign.com/sitemap.xml\n');
+await protectPreview();
 console.log('Build réussi : '+urls.length+' pages statiques, sitemap, robots.txt, 404 et atelier Roseval Kits.');
