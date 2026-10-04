@@ -76,3 +76,7 @@ if(!reduced.matches&&matchMedia('(pointer:fine)').matches){
 
 // Only record the contact method, never the address or message, and only after consent.
 document.addEventListener('click',event=>{const link=event.target.closest?.('a[href]');if(!link)return;const href=link.getAttribute('href');if(href.startsWith('tel:'))window.RosevalAnalytics?.track('contact_click',{method:'phone'});else if(href.startsWith('mailto:'))window.RosevalAnalytics?.track('contact_click',{method:'email'})});
+
+// Count the start of a quote once per page, without sending any form contents.
+const contactForm=document.querySelector('#contact-form');
+contactForm?.addEventListener('input',()=>window.RosevalAnalytics?.track('quote_start'),{once:true});
