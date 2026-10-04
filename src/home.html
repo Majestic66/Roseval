@@ -23,17 +23,6 @@
   <meta name="twitter:title" content="Roseval — Création web à Toulouse & outils créatifs">
   <meta name="twitter:description" content="Roseval Design, studio indépendant à Toulouse : création de sites web, identité visuelle, SEO local et outils créatifs gratuits pour les professionnels.">
   <meta name="twitter:image" content="https://rosevaldesign.com/og-image.jpg">
-  <style>
-    html.intro-pending { overflow: hidden; }
-    html.intro-pending::before { content: "roseval."; position: fixed; inset: 0; z-index: 2147483647; display: grid; place-items: center; background: #0d0d11; color: #baa5ff; font: 700 clamp(48px, 12vw, 160px)/1 Arial, sans-serif; letter-spacing: -.07em; }
-  </style>
-  <script>
-    // Paint the intro cover before fonts, images and the main script arrive.
-    if (!location.hash && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.documentElement.classList.add('intro-pending');
-      window.rosevalIntroCoverTimer = setTimeout(function () { document.documentElement.classList.remove('intro-pending'); }, 8000);
-    }
-  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap">
@@ -45,7 +34,6 @@
 </head>
 <body>
 <a class="home-skip" href="#accueil">Aller au contenu</a>
-<dialog class="home-intro" id="home-intro" aria-label="Animation de présentation Roseval"><iframe title="La signature Roseval en mouvement" data-src="/intro.html?opening=1"></iframe><button class="home-intro-skip" data-skip-intro autofocus>Passer l’animation ↗</button></dialog>
 <div class="roseval-page">
   <header class="site-header">
     <a href="#accueil" class="wordmark" aria-label="Roseval, retour en haut">roseval<span>.</span></a>
@@ -203,7 +191,6 @@
     </a>
   </footer>
   <nav class="home-footer-links page-width" aria-label="Informations et services Roseval">
-    <button class="home-replay" data-replay-intro hidden>Revoir l’animation</button>
     <a href="/realisations">Réalisations clients</a>
     <a href="/blog">Conseils pour votre activité</a>
     <a href="/mentions-legales">Mentions légales</a>

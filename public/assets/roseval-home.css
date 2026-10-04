@@ -192,9 +192,3 @@ h1, h2, p { margin: 0; }
 }
 
 /* A short, optional introduction; the homepage stays available without JavaScript. */
-.home-intro { position: fixed; inset: 0; z-index: 2147483647; border: 0; border-radius: 0; padding: 0; margin: 0; width: 100%; max-width: none; height: 100vh; height: 100dvh; max-height: none; background: #0d0d11; color: #f0eef4; overflow: hidden; }
-.home-intro::backdrop { background: #0d0d11; }
-.home-intro iframe { position: absolute; inset: 0; display: block; width: 100%; height: 100%; border: 0; }
-.home-intro-skip { position: absolute; right: 20px; bottom: max(24px, env(safe-area-inset-bottom)); z-index: 2; padding: 12px 18px; border: 1px solid #baa5ff; border-radius: 4px; background: #17141f; color: #f0eef4; font: inherit; cursor: pointer; }
-.home-intro-skip:focus-visible { outline: 2px solid #f0eef4; outline-offset: 4px; }
-.home-replay { font: inherit; background: none; border: 0; padding: 0; color: inherit; cursor: pointer; }
